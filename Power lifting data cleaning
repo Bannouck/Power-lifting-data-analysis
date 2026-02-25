@@ -1,0 +1,206 @@
+#Power lifting data cleaning
+
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from dateutil import parser
+import re
+import os
+
+########################################################################### 
+
+df = pd.read_csv('Athlete_data.csv')
+
+df[["RPE REEL", "POIDS REEL"]] = (
+    df[["RPE REEL", "POIDS REEL"]]
+    .replace(r'^\s*$', np.nan, regex=True)
+)
+df = df.dropna(subset=["RPE REEL" and "POIDS REEL"])
+
+rep_patern = re.compile(r'\b(max?)\b', re.IGNORECASE)
+def is_rep_based(x):
+    return isinstance(x, str) and bool(rep_patern.search(x))
+
+def coma_to_dot(val):    
+    val_str = str(val).strip()
+    if re.search(r"[,]", val_str):
+        coma = str(val).replace(",", ".")
+        try:
+            return float(coma)
+        except ValueError:
+            return val
+        
+def transformer_dat(val):
+    val_str = str(val).strip()
+    
+    # parsing if it contains a slash
+    if "/" in val_str:
+        try:
+            date = parser.parse(val_str, dayfirst=True, fuzzy=False)
+            
+            # handles special case: Jan 1900 (specific to the data set i had)
+            if date.month == 1 and date.year == 1900:
+                return date.day
+            
+            # transformation
+            return (date.month + date.day) / 2
+        
+        except Exception:
+            return val  # leave as if parsing fails
+    
+    return val
+
+def minus_separator(val):
+    val_str = str(val).strip().replace(",", ".")  # normalize commas
+    # contains "-" inside (not leading minus)
+    if "-" in val_str and not val_str.strip().startswith("-"):
+        parts = val_str.split("-")
+        try:
+            numbers = [float(p) for p in parts]
+            return np.mean(numbers)
+        except ValueError:
+            return val
+    # try converting directly to float
+    try:
+        return float(val_str)
+    except ValueError:
+        return val   
+        
+def apply_negative_adjustment(df, source_col, target_col):
+    df = df.copy()
+
+    src_idx = df.columns.get_loc(source_col)
+    tgt_idx = df.columns.get_loc(target_col)
+
+    for row in range(1, df.shape[0]):
+        val = df.iloc[row, src_idx]
+
+        if pd.notna(val) and isinstance(val, (int, float)) and val < 0:
+            poids = df.iloc[row - 1, tgt_idx]
+
+            if pd.notna(poids):
+                poids = float(poids)
+
+                result = poids + (poids * val)
+
+                df.iloc[row, tgt_idx] = result
+
+    return df
+
+def BLAST_to_num(df, source_col, target_col): #specific to my data set
+    df = df.copy()
+    src_idx = df.columns.get_loc(source_col)
+    tgt_idx = df.columns.get_loc(target_col)
+    for row in range(1, df.shape[0]):
+        val = df.iloc[row, src_idx]
+        if "BLAST" in str(val):
+            df.iloc[row, tgt_idx] = 9.5
+    return df
+    
+###################################################################################
+#COTES
+df['COTE'] = df['COTE'].str.strip().str.replace("SEMAINE", ",", case=False, regex=False)
+df[["BLOC", "SJ"]] = df["COTE"].str.split(",", n=1, expand=True)
+df.drop(columns=["COTE"], inplace=True)
+#Unites
+df["UNITES"] = df.apply(
+    lambda row: "reps"
+    if any(is_rep_based(row[col]) for col in ["REPETITIONS", "POIDS", "POIDS REEL"])
+    else "kg",
+    axis=1
+)
+
+#SERIES
+df['SERIES'] = (df['SERIES'].astype(str)
+                .str
+                .replace(",", ".")
+                .astype(float))
+
+#REPETITIONS
+df['REPETITIONS'] = (df['REPETITIONS']
+                     .astype(str)
+                     .str
+                     .replace(",", ".")
+                     .replace("max", np.nan)
+                     .fillna(df["POIDS REEL"])
+                     .str.strip()
+                     .str.replace("*", "-")
+                     .apply(transformer_dat)
+                     .apply(minus_separator)
+                     )
+
+#RPE
+df['RPE'] = (df['RPE'].astype(str)
+             .str
+             .replace(",", ".")
+             .apply(minus_separator)
+             .apply(transformer_dat)
+             .replace("BLAST", 9.5))
+
+
+#POIDS
+df['POIDS'] = (df['POIDS'].astype(str)
+               .str
+               .replace(",", ".")
+              .apply(minus_separator)
+              .apply(transformer_dat))
+
+df = apply_negative_adjustment(df, 'RPE', 'POIDS')
+#POIDS REEL
+df['POIDS REEL'] = (df['POIDS REEL'].astype(str)
+                    .str
+                    .replace(",", ".")
+                    .apply(transformer_dat)
+                    .str.strip()
+                    .str.replace("*", "-")
+                    .str.replace("/", "-")
+                    .str.replace("kg", "")
+                   .apply(minus_separator)
+                   .astype(float)
+                   .round(0))
+
+df["POIDS"] = df["POIDS"].fillna(df["POIDS REEL"])
+
+#RPE REEL
+df = BLAST_to_num(df, 'MOUVEMENT', 'RPE')
+
+
+df['RPE REEL'] = (df['RPE REEL'].astype(str).str.replace(",", ".")
+                    .apply(transformer_dat)
+                    .str.strip()
+                    .str.replace("*", "-")
+                    .str.replace("/", "-")  
+                   .apply(minus_separator)
+                   .fillna(df['RPE'])
+                   .astype(float)
+                   .round(2))
+
+df['RPE'] = df['RPE'].fillna(df['RPE REEL'])
+
+df["SERIES"] = df["SERIES"].astype(float).round(2)
+df["REPETITIONS"] = df["REPETITIONS"].astype(float).round(2)
+df["POIDS"] = df["POIDS"].astype(float).round(2)
+df["POIDS REEL"] = df["POIDS REEL"].astype(float).round(2)
+df["RPE"] = df["RPE"].astype(float).round(2)
+df["RPE REEL"] = df["RPE REEL"].astype(float).round(2)
+
+
+def mouvement_type(mouvement):
+    if any(x in mouvement for x in ['SQUAT TEMPO 4.2.4', 'SQUAT High barre', 'Squat comp', 'SQUAT TEMPO 3,0,3', 'SQUAT VOLUME','SQUAT COMP', 'SQUAT HIGH BARRE', 'SQUAT ATG', 'SQUAT ATG TOP SET']):
+        return 'S'
+    elif any(x in mouvement for x in ['Terre pause démarrage ','Terre comp', 'Terre SURELEVÉ', 'TERRE SURELEVÉ TEMPO', 'Terre 2CT', 'RDL surlevé', 'Terre Volume', 'Terre tempo 2ct pause genoux', 'Terre tempo 5:0:2']):
+        return 'D'
+    elif any(x in mouvement for x in ['BENCH SPOTO 1CM', 'BENCH', 'BENCH 3CT', 'BENCH AMRAP', 'Bench comp', 'BENCH SPOTO 1CT', 'BENCH TEMPO 3:1:3', 'BENCH TEMPO 2:2:0', 'BENCH TEMPO 2:2:0 ( BLAST )', 'BENCH comp (BLAST)', 'BENCH ( BLAST )', 'BENCH PRISE SERRÉE']):
+        return 'B'
+    else:
+        return 'renfo'
+    
+df['type'] = df['MOUVEMENT'].apply(mouvement_type)
+df['ECART POIDS'] = round(df['POIDS REEL'] - df['POIDS'], 2)
+df['ECART RPE'] = round(np.sqrt((df['RPE REEL'] - df['RPE'])**2), 2)
+df['MAX THEORIQUE'] = round((((df['REPETITIONS'] + (10 - df['RPE'])) * df['POIDS']) / 30) + df['POIDS'], 2)# (((REPETITIONS + (10 - RPE)) * POIDS) / 30) + POIDS
+df['MAX THEORIQUE REEL'] = round((((df['REPETITIONS'] + (10 - df['RPE REEL'])) * df['POIDS REEL']) / 30) + df['POIDS REEL'], 2) # (((REPETITIONS + (10 - RPE)) * POIDS) / 30) + POIDS
+df['ecart max'] = round(df['MAX THEORIQUE REEL'] - df['MAX THEORIQUE'], 2)
+
+df.to_csv('Athlete_cleane_data.csv', index=False)
