@@ -33,6 +33,7 @@ The parameters that are going to be observed are the following:
 Only the columns in red are to be filed by the athlete. We can see that their are only two, wich is minimal. We prefered to do so because of passed table models containig more columns to fill (these wer unregularly filled by the athletes leaving us with unrecoverable data). this version contains the most necessary data to follow the athletes progression and it also corresponds to the data that was most continuously filled in by the athletes. We opted for a very direct, simple organization of the table given to the athletes so as to drive their vision directly on the main exercices, and the parts to fill in, keeping a very minimalistic design. In deed it came out as the table that was the most filled and followed compared to previous designs.
 
 Using the "App script" extension on google sheets, we are able to insert the "power lifting data collect" and collect the data from every sheet in one unique sheet like follows:
+
 <img width="693" height="768" alt="image" src="https://github.com/user-attachments/assets/f3d41632-da9d-4733-8f7e-efb85bf23cb6" />
 
 
