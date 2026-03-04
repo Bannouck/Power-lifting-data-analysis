@@ -40,3 +40,6 @@ Using the "App script" extension on google sheets, we are able to insert the "po
  # ANNEXE:
 
 Mouvement: movement
+
+Poids : weights
+
