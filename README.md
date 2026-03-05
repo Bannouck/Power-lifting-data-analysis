@@ -36,6 +36,9 @@ Using the "App script" extension on google sheets, we are able to insert the "po
 
 <img width="693" height="768" alt="image" src="https://github.com/user-attachments/assets/f3d41632-da9d-4733-8f7e-efb85bf23cb6" />
 
+# 2.Data cleaning:
+
+Most of the data is numerical and quantitative except for the movement categorie. We can observe on the raw data, some anomalies. First of all every column hasn't got atomic data (atomic meaning that the data is of the same type/ unit). Some data are intigers, some are showed up as dates ("06/07/2025"in D5), some are showed up as negatives but never between minus one and zero (-0.16 in D3), some are a set of values ("55-65" in E9) and some are recognized as strings because of their writting ("62,5" for example will be recognized as a string because of the "," instead of a "."). 
 
  # ANNEXE:
 
