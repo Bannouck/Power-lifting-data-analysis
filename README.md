@@ -1,5 +1,5 @@
 # Power-lifting-data-analysis
-As a power lifter and as are my friend athletes, and as a stats and DS maniac unlike my friend athletes I have decided to do a piece of work in wich i am able tofollow and observe their performance evolution in between blocs of work. It is only a base for the time being and still being improved, hope you will find some use to it.
+ As a power lifter and as are my friend athletes, and as a stats and DS maniac unlike my friend athletes I have decided to do a piece of work in wich i am able tofollow and observe their performance evolution in between blocs of work. It is only a base for the time being and still being improved, hope you will find some use to it.
 
 For the time being this code is only used to clean and organize the data for power lifting purposes, but some or most functions can be reused for othger sports data. This document will regularly be edited as my work goes on. 
 
@@ -10,8 +10,7 @@ For the time being this code is only used to clean and organize the data for pow
 
 
  ## 1.Data scrapping:
-
-We collect the data from using a daily table, shared on google sheets, to fill by the athlete after each trainig. It goes as followes:
+ We collect the data from using a daily table, shared on google sheets, to fill by the athlete after each trainig. It goes as followes:
 
 <img width="842" height="217" alt="image" src="https://github.com/user-attachments/assets/0ab3d50d-bc5e-4ee5-97e3-c11a79d3555c" />
 
@@ -44,7 +43,7 @@ Using the "App script" extension on google sheets, we are able to insert the "po
 We could just take out these anomalies and keep the already valid data but this would create to many information gaps in the observation and would make them completely irelevant. What i am looking forward to, more than "cleaning" the data, is restoring the data. This means first of all, understanding why it has these funny shapes, how were the tables filled in by the coach but more specifically by the athletes. Because all thow some spaces are unfield, it does not mean that the exercise has not been done ( sometimes only the executed weight is put in and not the intensity, showing that the exercise has been executed).
 
 ### b. Understanding how is the table filled:
-
+ This is the more social part of this work, in wich i question for each athlete, their training habitudes, how do they mesure their intensity, what do they base their measure on, how do they fill in their sheets, when one is unfilled what does it mean, etc ,etc. This questioning is valid for the trainor as well, how has he set the weight and intensity marker for each athlete, what does it mean when he uses certain terms ("max", "max rep", "max min" or "Blast" for example). 
 
 
  # ANNEXE:
