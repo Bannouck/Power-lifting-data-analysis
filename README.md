@@ -45,9 +45,20 @@ We could just take out these anomalies and keep the already valid data but this 
 ### b. Understanding how is the table filled:
  This is the more social part of this work, in wich i question for each athlete, their training habitudes, how do they mesure their intensity, what do they base their measure on, how do they fill in their sheets, when one is unfilled what does it mean, etc ,etc. This questioning is valid for the trainor as well, how has he set the weight and intensity marker for each athlete, what does it mean when he uses certain terms ("max", "max rep", "max min" or "Blast" for example) and especialy what does he want us to look for.
 
-For the athletes, filling one cell out of two usually means that the unfilled one is the same as what was given by the coach. Consider both unfilled cells as undone by the athlete because all tho he might have done the exercise it is no use to ask him to remember what weight and especialy what intensity he exactly did on it. So just consider these kind of anomalies as exercices not done. We only reconstruct the data from is already present not by adding new data in the middle.
+For the athletes, filling one cell out of two usually means that the unfilled one is the same as what was given by the coach. Consider both unfilled cells as undone by the athlete because all tho he might have done the exercise it is no use to ask him to remember what weight and especialy what intensity he exactly did on it. So just consider these kind of anomalies as exercices not done. We only reconstruct the data from is already present, not by adding new data in the middle.
+
+### c. Building functions:
+ Now that we have identified the anomalies, understood why they are here:
+ - transformer_dat
+ - minus_separator
+ - apply_negative_adjustment
+ - BLAST_to_num
+ - rep_patern + is_rep_based
+
+### d. Cleaning and completing our dataset:
 
 
+ 
  # ANNEXE:
 
 Mouvement: movement
