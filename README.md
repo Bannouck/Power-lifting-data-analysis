@@ -58,6 +58,10 @@ For the athletes, filling one cell out of two usually means that the unfilled on
 ### d. Cleaning and completing our dataset:
 
 
+## 3. Analysis:
+### a. Biases
+
+
  
  # ANNEXE:
 
