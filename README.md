@@ -4,7 +4,7 @@
 For the time being this code is only used to clean and organize the data for power lifting purposes, but some or most functions can be reused for othger sports data. This document will regularly be edited as my work goes on. 
 
 
-## Data cleaning and anlysis of power lifting athletes dayly training data.
+# Data cleaning and anlysis of power lifting athletes dayly training data.
 ### Notice:
  All thow some words are transparent and are easly understandable in english, the analysis is done on french athletes and means that the spelling and the wording is in french. For hence, movements like the deadlift will be written "Terre", "SDT" or "Soulevé de Terre". Reach out to the annexe at the end of this document where translations will be put
 
