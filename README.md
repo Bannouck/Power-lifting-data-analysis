@@ -52,8 +52,8 @@ For the athletes, filling one cell out of two usually means that the unfilled on
  - `transformer_dat`
  - `minus_separator`
  - `apply_negative_adjustment`
- - BLAST_to_num
- - rep_patern + is_rep_based
+ - `BLAST_to_num`
+ - `rep_patern` + `is_rep_based`
 
 ### d. Cleaning and completing our dataset:
 
