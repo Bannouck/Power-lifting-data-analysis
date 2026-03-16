@@ -52,8 +52,8 @@ After understanding how the a thletes fill in their spreadsheets, it is importan
 ### c. Building the functions:
  Now that we have identified the anomalies, we understand why they are here:
  - `transformer_dat(val)`: this function is used to deal with cells containing a "/" and that would be recognised by our spreadsheet, as a date or not and then calculate the mean between the day and the month values to get a single value to replace the cell. 
- - `minus_separator(val)`: this function looks if their is a "-" symbol in it's value, if it is a leading minus or a sepreator, in function of witch it calculates the mean of the values that are separated.
- - `apply_negative_adjustment`
+ - `minus_separator(val)`: this function looks if their is a "-" symbol in it's value, if it is a leading minus or a sepreator, in function of witch it calculates the mean of the values that are separated and leaves the value as is if the minus is leading.
+ - `apply_negative_adjustment`: for the cells in wich the value is a negative number (usualy in "RPE" or "Poids"). It usualy represents a decrees of the used weight in the the preceding exercise
  - `BLAST_to_num`
  - `rep_patern` + `is_rep_based`
 
