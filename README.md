@@ -47,9 +47,11 @@ We could just take out these anomalies and keep the already valid data, but this
 
 For the athletes, filling one cell out of two usually means that the unfilled one is the same as what was given by the coach. Consider both unfilled cells as undone by the athlete because even though he might have done the exercise, it is no use to ask him to remember what weight and especially what intensity he exactly did on it. So just consider these kinds of anomalies as exercises not done. We only reconstruct the data from what is already present, not by adding new data in the middle.
 
-### c. Building functions:
+After understanding how the a thletes fill in their spreadsheets, it is important to observe how it is identified by the table. For example, an athlete can write in his RPE section: "7/8". The table on the other hand will believe it is a date and automaticaly rewrite it as "07/08/2026" so seven'th of august 2026. When dates are observed like this it is easy to understand that the values that interest us are the day and the month, so we have to find a way of correcting our cell by taking out the year. We have to look out for these specific anomalies and understand how they got here. Then we have to correct them and that's why we build the functions we are next going to see.
+
+### c. Building the functions:
  Now that we have identified the anomalies, we understand why they are here:
- - `transformer_dat`
+ - `transformer_dat(val)`: this function is used to deal with cells containing a "/" and that would be recognised by our spreadsheet, as a date. 
  - `minus_separator`
  - `apply_negative_adjustment`
  - `BLAST_to_num`
