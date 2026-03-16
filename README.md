@@ -6,7 +6,7 @@ For the time being this code is only used to clean and organize the data for pow
 
 # Data cleaning and anlysis of power lifting athletes dayly training data.
 ### Notice:
- All those words are transparent and easily understandable in English; the analysis is done on French athletes and means that the spelling and the wording are in French. For hence, movements like the deadlift will be written "Terre", "SDT" or "Soulevé de Terre". Reach out to the annex at the end of this document where translations will be put.
+ Most words are transparent and easily understandable in English; the analysis is done on French athletes and means that the spelling and the wording are in French. For hence, movements like the deadlift will be written "Terre", "SDT" or "Soulevé de Terre". Reach out to the annex at the end of this document where translations will be put.
 
 
  ## 1.Data scrapping:
