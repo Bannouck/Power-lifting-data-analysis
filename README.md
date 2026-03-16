@@ -15,6 +15,7 @@ For the time being this code is only used to clean and organize the data for pow
 <img width="842" height="217" alt="image" src="https://github.com/user-attachments/assets/0ab3d50d-bc5e-4ee5-97e3-c11a79d3555c" />
 
 The parameters that are going to be observed are the following:
+
  -"Mouvement": name of the exercise
  
  -"Series": number of series assigned per exercices/ movement.
