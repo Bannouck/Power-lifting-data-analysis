@@ -71,6 +71,14 @@ We have:
 
 Data that is empty in both cells mostly means that the athlete has not done the exercise so no information to get out of it.
 
+Then we treat each category independantly starting with the `COTE` category: It is composed of two parts: the bloc name (BLOC 4 : PREPA ++), the week number in the bloc and the day number in this week (SEMAINE 24)
+
+<img width="271" height="147" alt="image" src="https://github.com/user-attachments/assets/95538e30-5e9d-46b1-9218-ef2b1d95edb5" />
+
+First we strip white spaces and turn "SEMAINE" into a coma. I did this for it to be easier for me to split the name of the bloc and the week + day the exercise whas done
+<img width="862" height="72" alt="image" src="https://github.com/user-attachments/assets/5f653f09-2837-41c3-a1de-e1f620adf19c" />
+
+
 ## 3. Analysis:
 ### a. Biases
 
