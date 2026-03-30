@@ -68,6 +68,7 @@ We have:
  First of all we take out all of the values that are empty in `POIDS REEL` and in `RPE REEL`.
  So:
  <img width="518" height="142" alt="image" src="https://github.com/user-attachments/assets/954ca57f-08f5-4df1-a6bf-f840ba00fe8f" />
+
 Data that is empty in both cells mostly means that the athlete has not done the exercise so no information to get out of it.
 
 ## 3. Analysis:
