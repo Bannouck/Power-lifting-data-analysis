@@ -55,13 +55,13 @@ After understanding how the a thletes fill in their spreadsheets, it is importan
  - `transformer_dat(val)`: this function is used to deal with cells containing a "/" and that would be recognised by our spreadsheet, as a date or not and then calculate the mean between the day and the month values to get a single value to replace the cell. 
  - `minus_separator(val)`: this function looks if their is a "-" symbol in it's value, if it is a leading minus or a sepreator, in function of witch it calculates the mean of the values that are separated and leaves the value as is if the minus is leading.
  - `apply_negative_adjustment`: for the cells in wich the value is a negative number (usualy in "RPE" or "Poids"). It usualy represents a percentage decrees of the used weight in the preceding exercise, this new decreesed weight becoming the target weight to be applied.
- - `rep_patern` + `is_rep_based`
+ - `rep_patern` + `is_rep_based`: detects if the value put into "POIDS" and "POIDS REEL" is in number of reps or in Kg's.
 
 The previous functions are the main ones that are used and that are lightly to be transposed to other domains/ sports. But their are in the current python file, a few other functions and elements in the previous functions, that are going to be more specific to sorting out my data and its uniqness.
 We have:
 
- - `BLAST_to_num`:
- - 
+ - `BLAST_to_num`: Changes the value "BLAST" in "POIDS" with the value of "10" in the RPE ("BLAST" meaning for the athlete to go to his max intensity on the exercise)
+ - ``
 
 ### d. Cleaning and completing our dataset:
 
