@@ -56,15 +56,19 @@ After understanding how the a thletes fill in their spreadsheets, it is importan
  - `minus_separator(val)`: this function looks if their is a "-" symbol in it's value, if it is a leading minus or a sepreator, in function of witch it calculates the mean of the values that are separated and leaves the value as is if the minus is leading.
  - `apply_negative_adjustment`: for the cells in wich the value is a negative number (usualy in "RPE" or "Poids"). It usualy represents a percentage decrees of the used weight in the preceding exercise, this new decreesed weight becoming the target weight to be applied.
  - `rep_patern` + `is_rep_based`: detects if the value put into "POIDS" and "POIDS REEL" is in number of reps or in Kg's.
+ - `mouvement_type`: determines if the exercise is related specificaly to Squat, Bench, Deadlift or side-exercise.
 
-The previous functions are the main ones that are used and that are lightly to be transposed to other domains/ sports. But their are in the current python file, a few other functions and elements in the previous functions, that are going to be more specific to sorting out my data and its uniqness.
+The previous functions are the main ones that are used and that are lightly to be transposed to other domains/ sports. But their are in the current python file, a few other functions and elements in the previous functions, that are going to be more specific to sorting out my data and its "uniqness".
 We have:
 
  - `BLAST_to_num`: Changes the value "BLAST" in "POIDS" with the value of "10" in the RPE ("BLAST" meaning for the athlete to go to his max intensity on the exercise)
- - ``
 
 ### d. Cleaning and completing our dataset:
 
+ First of all we take out all of the values that are empty in `POIDS REEL` and in `RPE REEL`.
+ So:
+ <img width="518" height="142" alt="image" src="https://github.com/user-attachments/assets/954ca57f-08f5-4df1-a6bf-f840ba00fe8f" />
+Data that is empty in both cells mostly means that the athlete has not done the exercise so no information to get out of it.
 
 ## 3. Analysis:
 ### a. Biases
