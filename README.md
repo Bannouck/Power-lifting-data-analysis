@@ -75,7 +75,8 @@ Then we treat each category independantly starting with the `COTE` category: It 
 
 <img width="271" height="147" alt="image" src="https://github.com/user-attachments/assets/95538e30-5e9d-46b1-9218-ef2b1d95edb5" />
 
-First we strip white spaces and turn "SEMAINE" into a coma. I did this for it to be easier for me to split the name of the bloc and the week + day the exercise whas done
+First we strip white spaces and turn "SEMAINE" into a coma. I did this for it to be easier for me to split the name of the bloc and the week + day. Then whe split the column by the recuring character "," and have two columns:`BLOC` and `SJ` for "Semaine + Jour" (Week + Day) ==> "SJ". We can now drop the `Cote` column as it has been seperated.
+
 <img width="862" height="72" alt="image" src="https://github.com/user-attachments/assets/5f653f09-2837-41c3-a1de-e1f620adf19c" />
 
 
