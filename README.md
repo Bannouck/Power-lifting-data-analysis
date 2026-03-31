@@ -16,19 +16,19 @@ For the time being this code is only used to clean and organize the data for pow
 
 The parameters that are going to be observed are the following:
 
- -"Mouvement": name of the exercise
+ -`Mouvement`: name of the exercise
  
- -"Series": number of series assigned per exercices/ movement.
+ -`Series`: number of series assigned per exercices/ movement.
  
- -"Repetitions": nomber of reps assigned per series.
+ -`Repetitions`: nomber of reps assigned per series.
  
- -"RPE": represents the intensity expected to achieve at the end of a series.
+ -`RPE`: represents the intensity expected to achieve at the end of a series.
  
- -"Poids": represents the weight used in the exercise (in Kg).
+ -`Poids`: represents the weight used in the exercise (in Kg).
  
- -"Poids"(real, *reel, in red): corresponds to the reel weight applied by the athlete in the           exercise (in Kg).
+ -`Poids`(real, *reel, in red): corresponds to the reel weight applied by the athlete in the           exercise (in Kg).
 
- -"RPE"(real, *reel, in red): corresponds to the real intesity reached by the athlete at the end of    the exercise.
+ -`RPE`(real, *reel, in red): corresponds to the real intesity reached by the athlete at the end of    the exercise.
  
 Only the columns in red are to be filled by the athlete. We can see that there are only two, which is minimal. We prefer to do so because of passed table models containing more columns to fill (these were unregularly filled by the athletes leaving us with unrecoverable data). This version contains the most necessary data to follow the athletes' progression, and it also corresponds to the data that was most continuously filled in by the athletes. We opted for a very direct, simple organization of the table given to the athletes so as to drive their vision directly on the main exercises, and the parts to fill in, keeping a very minimalistic design. In deed, it came out as the table that was the most filled that suited compared to previous designs.
 
@@ -75,7 +75,7 @@ Then we treat each category independantly starting with the `COTE` category: It 
 
 <img width="271" height="147" alt="image" src="https://github.com/user-attachments/assets/95538e30-5e9d-46b1-9218-ef2b1d95edb5" />
 
-First we strip white spaces and turn "SEMAINE" into a coma. I did this for it to be easier for me to split the name of the bloc and the week + day. Then whe split the column by the recuring character "," and have two columns:`BLOC` and `SJ` for "Semaine + Jour" (Week + Day) ==> "SJ". We can now drop the `Cote` column as it has been seperated.
+First we strip white spaces and turn "SEMAINE" into a coma. I did this for it to be easier for me to split the name of the bloc and the week + day. Then whe split the column by the recuring character "," and have two columns:`BLOC` and `SJ` for "Semaine + Jour" (Week + Day) ==> "SJ". We can now drop the `COTE` column as it has been seperated.
 
 <img width="862" height="72" alt="image" src="https://github.com/user-attachments/assets/5f653f09-2837-41c3-a1de-e1f620adf19c" />
 
