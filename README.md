@@ -79,6 +79,53 @@ First we strip white spaces and turn "SEMAINE" into a coma. I did this for it to
 
 <img width="862" height="72" alt="image" src="https://github.com/user-attachments/assets/5f653f09-2837-41c3-a1de-e1f620adf19c" />
 
+For the `UNITES` category ...
+
+<img width="816" height="141" alt="image" src="https://github.com/user-attachments/assets/b5c997f6-8999-43f8-81a0-a3bf6b5103cf" />
+
+For the `SERIES` category ...
+
+<img width="402" height="93" alt="image" src="https://github.com/user-attachments/assets/009a37ca-6148-4123-8166-f04f21fa394b" />
+
+For the `REPETETIONS` category ...
+
+<img width="453" height="262" alt="image" src="https://github.com/user-attachments/assets/11715320-6353-4a39-8489-ca761449e536" />
+
+For the `RPE` category ...
+
+<img width="352" height="151" alt="image" src="https://github.com/user-attachments/assets/edc98d51-4fa2-496e-b37f-a902d712faa6" />
+
+For the `POIDS` category ...
+
+<img width="407" height="131" alt="image" src="https://github.com/user-attachments/assets/4682801b-a25f-4c38-87a5-11ae7770303f" />
+
+
+<img width="492" height="27" alt="image" src="https://github.com/user-attachments/assets/cd38eebb-759c-43f3-af4a-d1c4b3824463" />
+
+For the `POIDS REEL` category ...
+
+<img width="471" height="258" alt="image" src="https://github.com/user-attachments/assets/812e30e5-03d6-4459-b272-6f4d112acbf2" />
+
+<img width="488" height="30" alt="image" src="https://github.com/user-attachments/assets/e859856a-9ab4-4a88-beb5-2a0c08fe9836" />
+
+For the `RPE REEL` category ...
+
+<img width="402" height="27" alt="image" src="https://github.com/user-attachments/assets/fb984fac-a749-4573-990d-57205988f4c2" />
+
+
+<img width="642" height="218" alt="image" src="https://github.com/user-attachments/assets/21bdb4c1-c577-4e70-9cc9-e36d3c79c434" />
+
+
+<img width="427" height="21" alt="image" src="https://github.com/user-attachments/assets/f1b7491e-e67f-43e3-ba52-8de521ac3a5d" />
+
+Then we set every quantitative category to floats.
+
+<img width="595" height="156" alt="image" src="https://github.com/user-attachments/assets/ef65a5d3-4fea-40f0-9588-72f25712029f" />
+
+Build more useful columns from the information the data gives us:
+
+<img width="1232" height="150" alt="image" src="https://github.com/user-attachments/assets/b8db0e75-1abb-48a7-ac51-fd796294d10d" />
+
 
 ## 3. Analysis:
 ### a. Biases
