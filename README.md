@@ -83,11 +83,11 @@ For the `UNITES` category ...
 
 <img width="816" height="141" alt="image" src="https://github.com/user-attachments/assets/b5c997f6-8999-43f8-81a0-a3bf6b5103cf" />
 
-For the `SERIES` category ...
+For the `SERIES` category we set every value of the column as a string and then convert every coma (",") to a dot ("."). The aim behind all of that is to have all of the values in one collumn a same type. I can't just set everything as a string because some values are strings containing a character that can not be converted to a float like the coma. Once the type is a string we can easily replace, modify, take out the annoying characters. And then we convert everything back to float type.
 
 <img width="402" height="93" alt="image" src="https://github.com/user-attachments/assets/009a37ca-6148-4123-8166-f04f21fa394b" />
 
-For the `REPETETIONS` category ...
+For the `REPETETIONS` category we follow the same basis as for the `SERIES` category. Convert everything to string type, replace coma's by dots. Replace the values with "max" in them by the value in `POIDS REEL` because we are measuring the exercise in number of reps, and so as to have a value in repetitions conforming to what was given by the coach we take the value made by the athlete. It seems dodgy at first because their is no "benchmark" of max, it's not a numerical value, what makes us believe that the value the athletes have done corresponds to their max. None the less we have the RPE given by the coach and put in by athlete that will be used to check if they have hit the aimed effort and if what is put in the `POIDS REEL` section is coherant. If the intensity's don't match is what will be most interesting to see and not if the athlete or the coach specificaly overshot or undershot. Once we have the intensity especially and the nb of reps, mins, kg from the athlete it's ok.
 
 <img width="453" height="262" alt="image" src="https://github.com/user-attachments/assets/11715320-6353-4a39-8489-ca761449e536" />
 
